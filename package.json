@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@google/maps": "^0.4.5",
+    "google-distance-matrix": "^1.0.0",
+    "lodash": "^4.17.4",
     "material-ui": "^0.19.4",
     "prop-types": "^15.5.6",
     "react": "^16.1.1",

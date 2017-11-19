@@ -25,8 +25,9 @@ export default class SpotList extends React.Component{
     }
 
     getSpots = () => {
+        console.log(this.props);
         let promise = new Promise((resolve, reject) => {
-            request.get('http://popio.herokuapp.com/spots/all', (err, res, body) => {
+            request.get(`http://popio.herokuapp.com/spots/all/${this.props.lot.num}`, (err, res, body) => {
                 if(err){reject(err)}
                 resolve(body);
             })
@@ -63,9 +64,9 @@ export default class SpotList extends React.Component{
         return (
             <div style={{display: this.props.visible ? '' : 'none'}} className="SpotList">
                 <GridList cellHeight={180} cols={5} padding={20} style={styles.gridList}>
-                    {this.state.spots.map(spot => {
+                    {this.state.spots.map((spot, key) => {
                         return (
-                            <Spot getSpot={this.props.getSpot} spot={spot}/>
+                            <Spot key={key} getSpot={this.props.getSpot} spot={spot}/>
                         );
                     })}
                 </GridList>

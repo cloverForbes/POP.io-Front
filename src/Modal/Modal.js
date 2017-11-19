@@ -40,12 +40,12 @@ export default class Modal extends React.Component{
     render(){
         const actions = [
             <FlatButton disabled={this.props.spot.taken} onClick={this.handleReserve} primary={true} label="Reserve"/>,
-            <FlatButton secondary={true} onClick={this.handleClose} label="Cancel" />
+            <FlatButton secondary={false} onClick={this.handleClose} label="Cancel" />
         ];
 
         const secondActions = [
             <FlatButton disabled={this.props.spot.taken} primary={true} onClick={this.handleConfirm} label="Reserve"/>,
-            <FlatButton secondary={true} onClick={this.handleClose} label="Cancel" />
+            <FlatButton secondary={false} onClick={this.handleClose} label="Cancel" />
         ];
         return (
             <div className="Modal">

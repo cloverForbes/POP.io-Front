@@ -1,5 +1,6 @@
 import React from 'react';
 import {GridTile} from 'material-ui/GridList'
+import {GreenA700} from 'material-ui/styles/colors'
 
 export default class Lot extends React.Component{
 
@@ -24,7 +25,8 @@ export default class Lot extends React.Component{
                 color: 'white',
                 fontSize: '44px',
                 textAlign: 'Center',
-                backgroundColor: 'green'
+                borderRadius: '20px',
+                backgroundColor: '#00C853'
             },
         };
 

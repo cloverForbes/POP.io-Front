@@ -9,30 +9,27 @@ export default class LotList extends React.Component{
 
         this.state = {
             lots : [],
-        }
+        };
+
     }
 
-    timer() {
-        this.getLots();
-    }
-    componentDidMount() {
-        this.intervalId = setInterval(this.timer.bind(this), 1000);
-    }
-    componentWillUnmount(){
-        clearInterval(this.intervalId);
-    }
+
+    componentDidMount = () => {
+        setTimeout(() => {
+            this.getLots();
+        }, 100)
+    };
 
     getLots = () => {
         let promise = new Promise((resolve, reject) => {
-            if((typeof this.props.coords.latitude) !== 'undefined'){
                 request.get(`http://popio.herokuapp.com/lots/all/${this.props.coords.latitude}/${this.props.coords.longitude}`, (err, res, body) => {
                     if(err){reject(err)}
                     resolve(body);
                 })
-            }
         });
 
         promise.then(data => {
+            console.log(JSON.parse(data));
             this.setState({
                 lots: JSON.parse(data)
             })
@@ -55,7 +52,7 @@ export default class LotList extends React.Component{
             gridTile :{
                 color: 'white',
                 fontSize: '44px',
-                textAlign: 'Center'
+                textAlign: 'Center',
             },
         };
 

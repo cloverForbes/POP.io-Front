@@ -30,6 +30,7 @@ export default class Spot extends React.Component{
         return (
             <GridTile onClick={this.handleClick} className={this.props.spot.taken === false ? "taken" : 'notTaken'} cols={1} style={styles.gridTile}>
                 <h2>{`${this.props.spot.spot}`}</h2>
+                <p>{this.props.spot.lot}</p>
             </GridTile>
         );
     }
